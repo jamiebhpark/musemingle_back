@@ -10,23 +10,18 @@ import org.springframework.web.multipart.MultipartFile
 @Service
 class UserService(private val userRepository: UserRepository, private val s3Service: S3Service) {
 
-    // 이메일로 사용자 검색
     @Transactional(readOnly = true)
     fun findByEmail(email: String) = userRepository.findByEmail(email)
 
-    // ID로 사용자 검색
     @Transactional(readOnly = true)
     fun findById(id: Int) = userRepository.findById(id).orElse(null)
 
-    // 모든 사용자 조회
     @Transactional(readOnly = true)
     fun findAll() = userRepository.findAll()
 
-    // 사용자 생성
     @Transactional
     fun create(user: User) = userRepository.save(user)
 
-    // 사용자 업데이트
     @Transactional
     fun update(user: User) = userRepository.save(user)
 
@@ -36,7 +31,6 @@ class UserService(private val userRepository: UserRepository, private val s3Serv
     @Transactional
     fun existsById(id: Int): Boolean = userRepository.existsById(id)
 
-    // 사용자 삭제
     @Transactional
     fun deleteById(id: Int) = userRepository.deleteById(id)
 

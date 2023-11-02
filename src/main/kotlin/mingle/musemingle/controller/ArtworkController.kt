@@ -50,6 +50,4 @@ class ArtworkController(private val artworkService: ArtworkService) {
             ResponseEntity.notFound().build()
         }
     }
-
-    // Add other logics
 }

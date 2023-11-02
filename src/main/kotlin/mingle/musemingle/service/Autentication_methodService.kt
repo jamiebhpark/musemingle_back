@@ -19,6 +19,5 @@ class AuthenticationMethodService(private val authMethodRepository: Authenticati
         return authMethodRepository.save(authMethod)
     }
 
-    // 추가적인 서비스 메소드를 여기에 작성하세요.
 }
 

@@ -74,7 +74,6 @@ class AmazonS3Service {
         s3.deleteObject(deleteRequest)
     }
 
-    // update는 사실 upload와 동일합니다. 이미 존재하는 key로 업로드하면 해당 오브젝트를 덮어씁니다.
     fun updateFile(keyName: String, file: ByteArray): String {
         return uploadFile(keyName, file)
     }

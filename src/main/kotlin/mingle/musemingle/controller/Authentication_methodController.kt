@@ -23,6 +23,4 @@ class AuthenticationMethodController(private val authMethodService: Authenticati
         val savedAuthMethod = authMethodService.save(authMethod)
         return ResponseEntity.ok(savedAuthMethod)
     }
-
-    // 필요한 다른 엔드포인트와 로직들을 추가하세요.
 }

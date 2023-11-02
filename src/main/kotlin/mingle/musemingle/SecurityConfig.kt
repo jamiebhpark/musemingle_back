@@ -14,11 +14,11 @@ class SecurityConfig : AbstractHttpConfigurer<SecurityConfig, HttpSecurity>() {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .csrf { it.disable() } // CSRF 보안 비활성화 (필요에 따라)
+            .csrf { it.disable() }
             .authorizeHttpRequests {
-                it.anyRequest().permitAll() // 모든 요청에 대해 인증 생략
+                it.anyRequest().permitAll()
             }
-            .httpBasic { it.disable() }  // 기본 HTTP 인증 비활성화
+            .httpBasic { it.disable() }
 
         return http.build()
     }
