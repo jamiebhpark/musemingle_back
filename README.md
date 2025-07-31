@@ -1,120 +1,109 @@
-### 캡스톤 디자인 프로젝트
+## 🎨 MuseMingle - The Hub of Artists
 
 https://youtu.be/6kKQsWZ15y0
 
-### 🎨 MuseMingle - 예술가와 갤러리를 위한 종합 플랫폼
+---
 
 ## 📱 프로젝트 개요
 
-**MuseMingle**은 예술가와 갤러리 간의 상호 작용을 지원하는 플랫폼으로, 예술 작품의 업로드, 전시회 관리, 그리고 다양한 사용자 인증 방법을 제공합니다. 이 프로젝트는 iOS 모바일 애플리케이션과 백엔드 서버로 구성되어 있으며, 사용자는 자신의 예술 작품을 공유하고 전시회를 관리하며, 다양한 인증 방법을 통해 안전하게 로그인할 수 있습니다.
+**MuseMingle**은 예술가들이 자신의 작품을 공유하고 갤러리에서 전시회를 관리할 수 있는 모바일 플랫폼 앱입니다. 이 프로젝트는 제가 직접 아이디어를 기획하고, Swift와 Kotlin을 공부하여 직접 만든 졸업 작품입니다.
+
+- Github Link : https://github.com/jamiebhpark/musemingle_front
+- Github Link : https://github.com/jamiebhpark/musemingle_back
+- Youtube_Demo_Link : https://youtu.be/6kKQsWZ15y0
 
 ---
 
-## 🎯 주요 기능
+## 🔍 핵심 기능 및 개발내용
 
 ### iOS 프론트엔드
 
-- **사용자 인증 및 로그인**
-    - OAuth2 기반의 소셜 로그인 (Apple, Google, Facebook)
-    - JWT 기반의 토큰 인증 시스템
-    - 사용자의 로그인 상태를 `Combine`을 사용해 실시간으로 관리
-- **예술 작품 관리**
-    - 예술 작품의 등록, 수정, 삭제 기능 제공
-    - 작품의 이미지 업로드 (AWS S3 연동)
-    - 상세 페이지에서 작품의 세부 정보 확인 가능
+- **사용자 인증 (소셜 로그인)**
+    
+    Apple, Google, Facebook 계정을 이용한 로그인 기능 구현
+    
+    JWT 토큰을 이용하여 사용자 인증 관리
+    
+- **작품 관리**
+    
+    작품 등록, 수정, 삭제 기능 구현
+    
+    이미지 파일 업로드 기능을 AWS S3와 연동하여 구현
+    
 - **전시회 관리**
-    - 전시회 생성, 수정, 삭제 기능 제공
-    - 전시회에 포스터 이미지 업로드 (AWS S3 연동)
-    - 전시회 상태 (예정, 진행 중, 종료) 관리
-- **프로필 및 아카이브**
-    - 사용자의 프로필 업데이트, 아카이브 관리 기능
-    - 작품을 북마크하여 아카이브에 추가
+    
+    전시회 정보 생성, 수정, 삭제 기능 구현
+    
+    전시회 포스터 이미지를 AWS S3를 통해 관리
+    
+- **프로필 관리**
+    
+    사용자 프로필 편집 및 자신이 좋아하는 작품을 관리하는 아카이브 기능 제공
+    
 
-### 백엔드
+### 백엔드 (Kotlin, Spring)
 
-- **사용자 관리**
-    - 사용자 등록, 로그인 및 인증 처리
-    - 사용자 정보 수정 및 계정 삭제 기능 제공
-- **예술 작품 관리**
-    - 예술 작품의 등록, 수정, 삭제 API 제공
-    - 예술 작품의 이미지 업로드 및 삭제 기능 (AWS S3 연동)
-- **전시회 관리**
-    - 전시회의 등록, 수정, 삭제 API 제공
-    - 전시회 포스터 이미지 관리 (AWS S3 연동)
-- **파일 관리**
-    - AWS S3를 통한 안전한 파일 업로드 및 삭제 기능
-    - 사용자 프로필 이미지 및 학위 증명서 관리
+- REST API 서버 구축
+- 사용자 인증 처리 (JWT 토큰 사용)
+- 작품 및 전시회 관리 API 제공
+- AWS S3를 통한 이미지 업로드/삭제 처리
 
 ---
 
-## 🔧 기술 스택
+### 🔧 사용한 주요 기술
 
-- **프론트엔드**: SwiftUI, Combine, Swift (iOS)
-- **백엔드**: Kotlin, Spring Boot, JPA, AWS S3
-- **데이터베이스**: MySQL (JPA 연동)
-- **보안**: JWT (JSON Web Tokens) 기반 인증, OAuth2 (Google, Facebook, Apple)
-- **배포**: AWS (S3, EC2)
+- **프론트엔드:** Swift, SwiftUI, Combine
+- **백엔드:** Kotlin, Spring Boot, MySQL, AWS S3
+- **보안:** JWT, OAuth2 (Apple, Google, Facebook)
 
 ---
 
-## 💼 개발 과정에서의 역할 및 기여
+### ⚙️ 기술적 도전 및 해결 과정
 
-### iOS 프론트엔드 개발
+### 🔹 AWS S3 연동 문제 해결 (파일 업로드/삭제)
 
-- **주요 기능**: 로그인/회원가입, 전시회 및 작품 관리, 검색, 사용자 프로필 및 아카이브 관리
-- **상태 관리**: `Combine`을 사용하여 사용자 인증 상태와 UI 간의 상태 관리를 구현
-- **UI/UX 설계**: SwiftUI를 이용하여 다양한 인터페이스를 설계하고 사용자 경험을 최적화
-- **Apple Sign-In 구현**: `AuthenticationServices`를 이용하여 Apple 계정으로 로그인 기능을 구현
-
-### 백엔드 개발
-
-- **주요 기능**: 사용자 관리, 작품 및 전시회 관리, 파일 업로드 및 삭제 (AWS S3 연동)
-- **보안**: JWT를 활용하여 사용자 인증을 강화하고 OAuth2를 통한 소셜 로그인 기능 구현
-- **데이터베이스 연동**: Spring Data JPA를 사용하여 MySQL과의 데이터 연동을 관리
-- **AWS S3 연동**: 파일 업로드/다운로드 및 삭제 기능을 S3와 연동하여 구현
+- **문제 상황**
+    - 처음으로 AWS S3와의 이미지 업로드 및 삭제 기능을 연동하면서, 권한 설정 및 보안 이슈로 인해 파일 관리가 정상적으로 되지 않는 문제가 발생했습니다.
+- **해결 방법**
+    - AWS IAM 정책을 재정의하고, 정확한 S3 접근 권한을 설정했습니다.
+    - Kotlin Spring Boot의 AWS SDK 공식 문서를 철저히 참고하여, 보안성이 강화된 안정적인 업로드 및 삭제 기능을 구현했습니다.
+    - Postman과 Unit Test를 통해 반복적인 테스트를 수행하여 최종적으로 문제를 완벽히 해결했습니다.
 
 ---
 
-## 🚀 프로젝트의 성과 및 의미
+### 💡 프로젝트를 통해 배운 점
 
-- **간편한 인증 시스템**: 다양한 OAuth2 인증 방식을 제공함으로써 사용자 편의성을 극대화했습니다.
-- **강화된 보안**: JWT 기반의 토큰 인증으로 사용자의 데이터 보호를 강화했습니다.
-- **유연한 파일 관리**: AWS S3와의 연동을 통해 파일을 안전하고 효율적으로 관리할 수 있었습니다.
-- **모바일 UX 최적화**: SwiftUI를 활용하여 직관적이고 반응성이 뛰어난 UI를 구현했습니다.
-
----
-
-### 🚀 링크 및 자료
-
-- **데모 비디오:** [YouTube](https://www.youtube.com/watch?v=6kKQsWZ15y0)
-- **GitHub 저장소:**
-    - [프론트엔드 (Swift)](https://github.com/jamiebhpark/musemingle_front/tree/main/musemingle)
-    - [백엔드 (Kotlin)](https://github.com/jamiebhpark/musemingle_back/tree/main/src/main/kotlin/mingle/musemingle)
-    - [데이터베이스 및 AWS 구성](https://github.com/jamiebhpark/musemingle_db_aws)
-- **문서:**
-    - [프로젝트 요약 (Notion)](https://www.notion.so/Project-Summary-7bb8bb2f43c3495a833778264063f7d1?pvs=21)
-    - [디자인 및 와이어프레임 (Figma)](https://www.notion.so/Wireframe-Flowchart-42248fc6f9be46b2ad3c17751eaf1a1c?pvs=21)
+- Swift와 Kotlin이라는 언어를 처음 접하고, 모바일 앱과 백엔드 개발을 함께 경험했습니다.
+- 개발 중 문제 발생 시 공식 문서, Stack Overflow, YouTube 등 다양한 자료를 찾아 주도적으로 문제를 해결했습니다.
+- 앱 개발의 전체 흐름을 경험하며 사용자 입장에서 UI/UX를 설계하는 방법을 배우게 되었습니다.
+- 처음부터 완벽하게 구현하지 못한 기능도 있었지만, 이 과정에서 실제 개발 사이클을 간접적으로 경험했습니다.
 
 ---
 
-## 💻 코드 스니펫
+### 🚀 프로젝트 결과
 
-### 1. Apple Sign-In 연동 (iOS)
+- 교수님과 학우들로부터 사용자 친화적인 UI 설계와 안정적인 앱 구현에 대해 좋은 평가를 받았습니다.
+- 교수님에게 최우수 작품 평가를 받았습니다. 특히 기획의 탄탄함에 최고 평가하셨습니다.
+- 실제 앱스토어 출시에는 이르지 못했지만, 앱 개발 전반을 경험하며 탄탄한 기본기를 쌓는 계기가 되었습니다.
+
+---
+
+## 💻 코드 스니펫 (핵심 요약)
+
+### **1. Apple 로그인 구현 (Swift)**
+
+**역할**
+
+- 사용자가 앱에서 Apple 계정을 이용해 간편히 로그인할 수 있도록 구현했습니다.
 
 ```swift
 import AuthenticationServices
-import SwiftKeychainWrapper
 
-class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ObservableObject {
-    var loginStatusViewModel: LoginStatusViewModel
-
-    init(loginStatusViewModel: LoginStatusViewModel) {
-        self.loginStatusViewModel = loginStatusViewModel
-    }
+class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate {
 
     func signIn() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
+        request.requestedScopes = [.email]
 
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
@@ -122,87 +111,66 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, Observabl
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            if let identityToken = appleIDCredential.identityToken,
-               let identityTokenString = String(data: identityToken, encoding: .utf8) {
-                sendTokenToServer(token: identityTokenString)
-            }
-        }
+        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
+              let tokenData = credential.identityToken,
+              let tokenString = String(data: tokenData, encoding: .utf8) else { return }
+
+        // 받은 Apple 토큰을 서버에 전송하여 로그인 인증 진행
+        sendTokenToServer(token: tokenString)
     }
 
     private func sendTokenToServer(token: String) {
-        let url = URL(string: "http://3.34.187.225/auth/apple")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: ["id_token": token])
-        } catch let error {
-            print("Error encoding JSON: \(error)")
-            return
-        }
-
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error occurred while validating the token: \(error)")
-                return
-            }
-            // Handle response
-        }.resume()
+        // JWT 토큰을 서버로 보내 사용자 인증 진행 (REST API 통신)
     }
 }
 
 ```
 
-**설명**:
-이 코드 스니펫은 **Apple Sign-In** 기능을 구현한 부분입니다. `AppleSignInManager` 클래스는 Apple의 인증 서비스를 사용하여 사용자를 로그인시키는 역할을 합니다.
+- Apple ID 로그인 과정의 흐름과 `ASAuthorizationController`의 역할 이해
+- 토큰이 서버로 전송되어 사용자를 인증하는 기본 흐름 이해
 
-- `signIn()` 메서드는 Apple ID로 로그인을 시도하는 과정에서 사용되며, `ASAuthorizationAppleIDProvider`를 사용하여 인증 요청을 만듭니다.
-- `authorizationController` 메서드는 사용자가 성공적으로 인증을 마쳤을 때 호출되며, 받은 토큰을 서버에 전달하는 역할을 합니다.
-- `sendTokenToServer` 메서드는 인증 후 받은 토큰을 서버로 보내는 과정을 처리합니다. 이 토큰은 서버에서 검증되어, 사용자가 실제로 Apple에서 인증한 사용자인지를 확인하는 데 사용됩니다.
+---
 
-이 코드 스니펫은 MuseMingle 앱에서 사용자의 Apple 계정을 통해 안전하고 간편하게 로그인할 수 있게 하는 핵심 기능을 담당합니다.
+### **2. AWS S3 파일 업로드 및 삭제 (Kotlin)**
 
-### 2. 파일 업로드 및 삭제 (AWS S3 연동)
+**역할**
+
+- 앱 내 이미지 파일을 서버에서 관리할 수 있도록 AWS S3 연동 기능을 구현했습니다.
 
 ```kotlin
 @Service
 class S3Service {
 
     private val bucketName = "musemingle-app-images"
-    private val region = Region.AP_NORTHEAST_2
-    private val s3 = S3Client.builder().region(region).build()
+    private val s3 = S3Client.builder().region(Region.AP_NORTHEAST_2).build()
 
     fun uploadFile(directory: String, file: ByteArray, originalFilename: String): String {
         val key = "$directory/$originalFilename"
         s3.putObject(
-            PutObjectRequest.builder()
-                .bucket(bucketName)
-                .key(key)
-                .build(),
+            PutObjectRequest.builder().bucket(bucketName).key(key).build(),
             RequestBody.fromBytes(file)
         )
         return s3.utilities().getUrl { builder -> builder.bucket(bucketName).key(key) }.toExternalForm()
     }
 
     fun deleteFile(url: String) {
-        val key = url.replace("https://${bucketName}.s3.${region.id()}.amazonaws.com/", "")
+        val key = url.substringAfter("amazonaws.com/")
         s3.deleteObject(DeleteObjectRequest.builder().bucket(bucketName).key(key).build())
     }
 }
 
 ```
 
-**설명**:
-이 코드 스니펫은 **AWS S3**를 이용해 파일을 업로드하고 삭제하는 서비스입니다.
+- AWS S3를 사용한 이유(간편한 파일 관리, 확장성)와 업로드, 삭제 기능이 어떻게 작동하는지 개괄적인 이해
+- 파일이 어떻게 S3에 저장되고 관리되는지 개념적인 이해
 
-- `uploadFile` 메서드는 파일을 S3 버킷에 업로드하고, 업로드된 파일의 URL을 반환합니다. 파일은 지정된 디렉토리와 원본 파일 이름을 기반으로 S3에 저장됩니다.
-- `deleteFile` 메서드는 S3에 저장된 파일을 URL을 통해 삭제하는 역할을 합니다.
+---
 
-이 코드 스니펫은 MuseMingle에서 사용자 프로필 이미지, 예술 작품 이미지, 전시회 포스터 이미지 등을 S3에 저장하고 관리하는 기능을 담당합니다. 이를 통해 애플리케이션에서 이미지 파일을 안전하게 저장하고, 필요시 삭제할 수 있습니다.
+### **3. 전시회 관리 기능 구현 (Kotlin)**
 
-### 3. 전시회 관리 (백엔드)
+**역할**
+
+- 앱의 주요 기능인 전시회를 관리(등록, 수정, 삭제)하는 API 서버 기능을 개발했습니다.
 
 ```kotlin
 @Service
@@ -210,10 +178,6 @@ class ExhibitionService(
     private val exhibitionRepository: ExhibitionRepository,
     private val s3Service: S3Service
 ) {
-    @Transactional(readOnly = true)
-    fun findById(id: Int): Exhibition? = exhibitionRepository.findById(id).orElse(null)
-
-    @Transactional
     fun save(exhibition: Exhibition, posterImage: MultipartFile?): Exhibition {
         posterImage?.let {
             val imageUrl = s3Service.uploadFile("exhibitions", it.bytes, it.originalFilename!!)
@@ -222,38 +186,16 @@ class ExhibitionService(
         return exhibitionRepository.save(exhibition)
     }
 
-    @Transactional
     fun deleteById(id: Int) {
-        val exhibition = findById(id) ?: throw IllegalArgumentException("No Exhibition with given ID found")
-        exhibition.posterImage?.let {
-            s3Service.deleteFile(it)
-        }
+        val exhibition = exhibitionRepository.findById(id).orElseThrow()
+        exhibition.posterImage?.let { s3Service.deleteFile(it) }
         exhibitionRepository.deleteById(id)
-    }
-
-    @Transactional
-    fun update(id: Int, updatedExhibition: Exhibition, posterImage: MultipartFile?): Exhibition {
-        val exhibition = exhibitionRepository.findById(id)
-            .orElseThrow { IllegalArgumentException("No Exhibition with given ID found") }
-
-        exhibition.posterImage?.let {
-            s3Service.deleteFile(it)
-        }
-
-        posterImage?.let {
-            val imageUrl = s3Service.uploadFile("exhibitions", it.bytes, it.originalFilename!!)
-            exhibition.posterImage = imageUrl
-        }
-
-        return exhibitionRepository.save(exhibition)
     }
 }
 
 ```
 
-**설명**:
-이 코드 스니펫은 **전시회 관리** 기능을 담당하는 서비스입니다.
+- 전시회 정보와 이미지를 관리하는 기본 로직에 대한 이해
+- 사용자가 이미지를 업로드하면 AWS S3를 통해 저장, 전시회를 삭제할 때 이미지도 함께 삭제
 
-- `save` 메서드는 전시회를 저장하며, 포스터 이미지가 있을 경우 AWS S3에 업로드하여 전시회의 포스터 URL을 저장합니다.
-- `deleteById` 메서드는 전시회를 삭제하는데, 삭제하기 전에 S3에 저장된 포스터 이미지를 삭제합니다.
-- `update` 메서드는 전시회 정보를 업데이트하며, 업데이트 시 이전 포스터 이미지를 삭제하고 새로운 이미지를 업로드하여 갱신합니다.
+---
